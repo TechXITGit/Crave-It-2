@@ -1,0 +1,142 @@
+/* ==========================================================================
+   CRAVE IT — CONCEPT 02: ANIMATION SYSTEM
+   Organic Floating, Subtle Parallax, Dynamic Marquee & Transitions
+   ========================================================================== */
+
+/* Gentle Floating Physics */
+@keyframes float-gentle-1 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-16px) rotate(2.5deg);
+  }
+}
+
+@keyframes float-gentle-2 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-22px) rotate(-3deg);
+  }
+}
+
+@keyframes float-gentle-3 {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-12px) rotate(4deg) scale(1.02);
+  }
+}
+
+@keyframes float-orbit {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(8px, -15px) rotate(2deg);
+  }
+  66% {
+    transform: translate(-6px, -8px) rotate(-1.5deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+/* Pulse / Breathing for subtle accents */
+@keyframes pulse-subtle {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.95;
+  }
+  50% {
+    transform: scale(1.03);
+    opacity: 1;
+  }
+}
+
+/* Marquee Continuous Flow */
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-scroll-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* Staggered Vertical Reveal */
+@keyframes reveal-up {
+  0% {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Classes to apply animations */
+.animate-float-1 {
+  animation: float-gentle-1 6s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float-gentle-2 7.5s ease-in-out infinite 0.5s;
+}
+
+.animate-float-3 {
+  animation: float-gentle-3 8.5s ease-in-out infinite 1s;
+}
+
+.animate-orbit {
+  animation: float-orbit 9s ease-in-out infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 4s ease-in-out infinite;
+}
+
+.marquee-track {
+  display: flex;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee-scroll 28s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Respect Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-float-1,
+  .animate-float-2,
+  .animate-float-3,
+  .animate-orbit,
+  .marquee-track {
+    animation: none !important;
+  }
+}

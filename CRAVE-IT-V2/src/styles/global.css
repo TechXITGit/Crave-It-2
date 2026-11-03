@@ -1,0 +1,375 @@
+/* ==========================================================================
+   CRAVE IT — CONCEPT 02: GLOBAL DESIGN TOKENS & SYSTEM
+   Warm off-white, electric cobalt blue, and lemon yellow
+   ========================================================================== */
+
+@import './typography.css';
+@import './animations.css';
+
+:root {
+  /* Color Palette — Verified Exact Brand Specifications */
+  --color-bg-primary: #F2F0ED;
+  --color-bg-secondary: #EAE8E4;
+  --color-cobalt: #1746D2;
+  --color-deep-blue: #102D96;
+  --color-yellow: #F7CB28;
+  --color-warm-yellow: #F5B91D;
+  --color-charcoal: #171717;
+  --color-white: #FFFFFF;
+  --color-muted: #575551;
+  --color-light-gray: #DCD9D3;
+
+  /* Alpha / Glassmorphism Tokens */
+  --border-subtle: rgba(23, 23, 23, 0.08);
+  --border-cobalt: rgba(23, 70, 210, 0.25);
+  --border-yellow: rgba(247, 203, 40, 0.35);
+  --glass-bg: rgba(242, 240, 237, 0.78);
+  --glass-blur: blur(14px);
+
+  /* Shadows */
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.03);
+  --shadow-float: 0 20px 40px -15px rgba(16, 45, 150, 0.12);
+  --shadow-hover: 0 24px 48px -12px rgba(23, 70, 210, 0.16);
+  --shadow-food: 0 25px 50px -12px rgba(0, 0, 0, 0.18);
+
+  /* Spacing & Layout */
+  --container-max: 1440px;
+  --header-height: 80px;
+  --radius-pill: 9999px;
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 20px;
+
+  /* Transitions */
+  --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-body);
+  background-color: var(--color-bg-primary);
+  color: var(--color-charcoal);
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-charcoal);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  line-height: var(--lh-normal);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--color-cobalt);
+  color: var(--color-yellow);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-cobalt);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-deep-blue);
+}
+
+/* Links & Buttons Reset */
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+button {
+  background: none;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.25rem, 4vw, 3.5rem);
+  padding-right: clamp(1.25rem, 4vw, 3.5rem);
+}
+
+.container-wide {
+  width: 100%;
+  max-width: 1680px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1rem, 3vw, 2.5rem);
+  padding-right: clamp(1rem, 3vw, 2.5rem);
+}
+
+/* ==========================================================================
+   INTERACTIVE BUTTONS & PILLS (Inspired by Reference)
+   ========================================================================== */
+
+/* The Swiss Reference Nav Pill: clean oval outline */
+.nav-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 1.15rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-size: var(--text-tag);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-cobalt);
+  border: 1.2px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.nav-pill.active {
+  border-color: var(--color-cobalt);
+}
+
+.nav-pill:hover:not(.active) {
+  color: var(--color-deep-blue);
+  background-color: rgba(23, 70, 210, 0.04);
+}
+
+/* Circular Arrow CTA Button (as seen in reference: (→)) */
+.btn-circle-arrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-cobalt);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-cobalt);
+  background: transparent;
+  transition: all var(--transition-smooth);
+}
+
+.btn-circle-arrow:hover {
+  background-color: var(--color-cobalt);
+  color: var(--color-yellow);
+  transform: scale(1.08) rotate(45deg);
+}
+
+/* Primary Cobalt Button */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.85rem 1.75rem;
+  background-color: var(--color-cobalt);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: var(--text-tag);
+  font-weight: 700;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-smooth);
+  box-shadow: 0 8px 20px -6px rgba(23, 70, 210, 0.4);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-deep-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px -6px rgba(16, 45, 150, 0.5);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Bright Yellow CTA Button */
+.btn-yellow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.95rem 2rem;
+  background-color: var(--color-yellow);
+  color: var(--color-charcoal);
+  font-family: var(--font-body);
+  font-size: var(--text-tag);
+  font-weight: 700;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-smooth);
+  box-shadow: 0 8px 24px -6px rgba(247, 203, 40, 0.45);
+}
+
+.btn-yellow:hover {
+  background-color: var(--color-warm-yellow);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 30px -6px rgba(245, 185, 29, 0.55);
+}
+
+/* Minimal Outline Button */
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.35rem;
+  border: 1.5px solid var(--color-cobalt);
+  color: var(--color-cobalt);
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: var(--text-tag);
+  font-weight: 700;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  transition: all var(--transition-smooth);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-cobalt);
+  color: var(--color-white);
+  transform: translateY(-1px);
+}
+
+/* Micro Badges */
+.badge-tag {
+  display: inline-block;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  background-color: var(--color-bg-secondary);
+  color: var(--color-charcoal);
+}
+
+.badge-tag-blue {
+  background-color: rgba(23, 70, 210, 0.1);
+  color: var(--color-cobalt);
+}
+
+.badge-tag-yellow {
+  background-color: var(--color-yellow);
+  color: var(--color-charcoal);
+}
+
+.badge-veg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid #2e7d32;
+  border-radius: 2px;
+  padding: 1px;
+}
+.badge-veg::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #2e7d32;
+}
+
+.badge-non-veg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid #c62828;
+  border-radius: 2px;
+  padding: 1px;
+}
+.badge-non-veg::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-bottom: 6px solid #c62828;
+}
+
+/* Hairline Rules */
+.hairline-h {
+  width: 100%;
+  height: 1px;
+  background-color: var(--border-subtle);
+}
+
+.hairline-v {
+  width: 1px;
+  height: 100%;
+  background-color: var(--border-subtle);
+}
+
+/* Custom Cursor */
+.custom-cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-cobalt);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease-out;
+  transform: translate(-50%, -50%);
+}
+
+.custom-cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--color-cobalt);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), width 0.2s, height 0.2s, background-color 0.2s;
+  transform: translate(-50%, -50%);
+  opacity: 0.6;
+}
+
+.cursor-hover .custom-cursor-ring {
+  width: 56px;
+  height: 56px;
+  background-color: rgba(247, 203, 40, 0.25);
+  border-color: var(--color-yellow);
+}
+
+@media (pointer: coarse) {
+  .custom-cursor-dot, .custom-cursor-ring {
+    display: none !important;
+  }
+}

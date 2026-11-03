@@ -1,0 +1,398 @@
+/* ==========================================================================
+   CRAVE IT — CONCEPT 02: HERO SECTION STYLES
+   Minimalist Swiss-inspired Editorial Layout + Asymmetrical Typography & Floating Food
+   ========================================================================== */
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--color-bg-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: calc(var(--header-height) + 1.5rem);
+  padding-bottom: 2.5rem;
+  overflow: hidden;
+}
+
+/* Background Subtle Canvas Accents */
+.hero-canvas-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Main Hero Grid */
+.hero-main-grid {
+  position: relative;
+  z-index: 5;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  min-height: calc(100vh - var(--header-height) - 7rem);
+  gap: 2rem;
+}
+
+/* Left Hero Column */
+.hero-left-col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: 1rem;
+}
+
+.hero-tag-top {
+  margin-bottom: 1.75rem;
+}
+
+/* Hero Typography Block */
+.hero-type-block {
+  position: relative;
+  display: inline-block;
+  line-height: 0.82;
+  user-select: none;
+}
+
+/* Big Yellow Orb behind left letters */
+.hero-left-yellow-orb {
+  position: absolute;
+  left: 20%;
+  top: 45%;
+  width: clamp(240px, 32vw, 460px);
+  height: clamp(240px, 32vw, 460px);
+  transform: translate(-30%, -20%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #FBE044 0%, #F7CB28 50%, #F5B91D 85%, #E59A12 100%);
+  filter: blur(2px);
+  opacity: 0.92;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Giant Cobalt Letters */
+.hero-letters-wrap {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-row-1 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.1em;
+}
+
+.hero-row-2 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.1em;
+  margin-top: -0.05em;
+}
+
+.letter-condensed {
+  font-family: var(--font-display);
+  font-size: var(--text-hero-giant);
+  line-height: 0.8;
+  color: var(--color-cobalt);
+  display: inline-block;
+  letter-spacing: -0.02em;
+}
+
+.letter-special {
+  position: relative;
+  color: var(--color-cobalt);
+}
+
+.letter-accent-dot {
+  display: inline-block;
+  width: 0.12em;
+  height: 0.12em;
+  border-radius: 50%;
+  background-color: var(--color-cobalt);
+  margin-left: 0.05em;
+  margin-bottom: 0.1em;
+}
+
+
+/* Large Floating Lemon in Front */
+.floating-lemon-hero {
+  position: absolute;
+  top: 15%;
+  right: -5%;
+  width: clamp(140px, 18vw, 240px);
+  z-index: 6;
+  filter: drop-shadow(0 25px 35px rgba(0, 0, 0, 0.18));
+  cursor: grab;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.floating-lemon-hero:active {
+  cursor: grabbing;
+}
+
+/* Right Hero Column */
+.hero-right-col {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 480px;
+}
+
+/* Supporting Copy on Right (Center-Right in reference) */
+.hero-caption-box {
+  position: absolute;
+  left: -10%;
+  bottom: 30%;
+  z-index: 8;
+  max-width: 200px;
+}
+
+.hero-caption-text {
+  font-family: var(--font-body);
+  font-size: var(--text-tag);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-muted);
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+/* Graphic Art Composition on Right (Matching the 4 vertical bars cutting across yellow sphere) */
+.hero-graphic-art-wrap {
+  position: relative;
+  width: clamp(280px, 34vw, 480px);
+  height: clamp(280px, 34vw, 480px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Large Yellow Textured Orb on Right */
+.hero-right-yellow-orb {
+  position: absolute;
+  width: 90%;
+  height: 90%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #FBE044 0%, #F7CB28 45%, #F5B91D 80%, #E59A12 100%);
+  filter: drop-shadow(0 20px 40px rgba(247, 203, 40, 0.28));
+  z-index: 2;
+  overflow: hidden;
+}
+
+/* 4 Staggered Cobalt Blue Vertical Graphic Bars */
+.hero-blue-bars {
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  gap: clamp(12px, 1.6vw, 22px);
+  height: 120%;
+  top: -10%;
+  align-items: flex-start;
+}
+
+.blue-bar {
+  width: clamp(14px, 1.6vw, 24px);
+  background-color: var(--color-cobalt);
+  border-radius: 2px;
+}
+
+.blue-bar-1 { height: 86%; }
+.blue-bar-2 { height: 96%; }
+.blue-bar-3 { height: 72%; }
+.blue-bar-4 { height: 80%; }
+
+/* Floating Food on Right Graphic */
+.floating-drumstick-right {
+  position: absolute;
+  top: -8%;
+  left: -15%;
+  width: clamp(140px, 16vw, 220px);
+  z-index: 7;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.2));
+  transform: rotate(-15deg);
+}
+
+.floating-biryani-plate-right {
+  position: absolute;
+  bottom: -10%;
+  right: -10%;
+  width: clamp(180px, 22vw, 300px);
+  z-index: 7;
+  filter: drop-shadow(0 25px 40px rgba(0, 0, 0, 0.24));
+}
+
+.floating-chilli-right {
+  position: absolute;
+  top: 15%;
+  right: -8%;
+  width: clamp(60px, 8vw, 100px);
+  z-index: 7;
+  filter: drop-shadow(0 14px 20px rgba(0, 0, 0, 0.16));
+}
+
+
+/* Bottom Hero Bar */
+.hero-bottom-bar {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-top: 1rem;
+}
+
+/* Responsive Rules for Mobile/Tablet */
+@media (max-width: 1024px) {
+  .hero-main-grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    padding-top: 1rem;
+  }
+
+  .hero-right-col {
+    min-height: 420px;
+    margin-top: 2rem;
+  }
+
+  .hero-caption-box {
+    left: 0;
+    bottom: -15px;
+    position: relative;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: auto;
+    padding-top: calc(var(--header-height) + 1.25rem);
+    padding-bottom: 2.5rem;
+  }
+
+  .hero-main-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    min-height: auto;
+    text-align: center;
+  }
+
+  .hero-left-col {
+    align-items: center;
+    text-align: center;
+    padding-right: 0;
+  }
+
+  .hero-type-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-letters-wrap {
+    align-items: center;
+  }
+
+  .hero-row-1, .hero-row-2 {
+    justify-content: center;
+    gap: 0.05em;
+  }
+
+  .letter-condensed {
+    font-size: clamp(3.6rem, 16vw, 6.5rem);
+  }
+
+  .hero-left-yellow-orb {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) !important;
+    width: clamp(200px, 55vw, 320px);
+    height: clamp(200px, 55vw, 320px);
+  }
+
+  .floating-lemon-hero {
+    right: 2%;
+    top: -5%;
+    width: clamp(85px, 20vw, 130px);
+  }
+
+  .hero-caption-box {
+    text-align: center;
+    margin: 1.5rem auto 0;
+    max-width: 320px;
+  }
+
+  .hero-right-col {
+    min-height: 300px;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-graphic-art-wrap {
+    width: clamp(230px, 66vw, 300px);
+    height: clamp(230px, 66vw, 300px);
+  }
+
+  .floating-drumstick-right {
+    top: -6%;
+    left: -6%;
+    width: clamp(100px, 26vw, 140px);
+  }
+
+  .floating-biryani-plate-right {
+    bottom: -6%;
+    right: -6%;
+    width: clamp(140px, 34vw, 190px);
+  }
+
+  .floating-chilli-right {
+    top: 10%;
+    right: -2%;
+    width: clamp(45px, 12vw, 65px);
+  }
+
+  .hero-bottom-bar {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    padding-top: 2rem;
+  }
+
+  .brand-statement-vertical {
+    border-left: none;
+    border-top: 1.5px solid var(--color-cobalt);
+    padding-left: 0;
+    padding-top: 0.6rem;
+    display: flex;
+    gap: 1.25rem;
+    letter-spacing: 0.2em;
+  }
+
+  .hero-bottom-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .hero-bottom-actions a {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 0.85rem 1.5rem;
+  }
+
+  .slide-indicator {
+    align-self: center;
+  }
+}

@@ -1,0 +1,148 @@
+/* ==========================================================================
+   CRAVE IT — CONCEPT 02: TYPOGRAPHY SYSTEM
+   Tall, narrow, condensed display typography + Swiss editorial clarity
+   ========================================================================== */
+
+:root {
+  --font-display: 'League Gothic', 'Bebas Neue', 'Oswald', sans-serif;
+  --font-condensed: 'Bebas Neue', 'Oswald', sans-serif;
+  --font-body: 'DM Sans', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'DM Sans', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Editorial Fluid Font Sizes */
+  --text-hero-giant: clamp(5rem, 16vw, 16rem);
+  --text-hero-sub: clamp(1.8rem, 4.5vw, 4.5rem);
+  --text-display-1: clamp(3.2rem, 8vw, 7.5rem);
+  --text-display-2: clamp(2.2rem, 5vw, 4.5rem);
+  --text-display-3: clamp(1.8rem, 3.5vw, 3.2rem);
+  --text-title: clamp(1.2rem, 2vw, 1.75rem);
+  --text-body-lg: clamp(1rem, 1.2vw, 1.15rem);
+  --text-body: 0.95rem;
+  --text-sm: 0.825rem;
+  --text-tag: 0.72rem;
+  --text-micro: 0.65rem;
+
+  /* Leading & Tracking */
+  --lh-tight: 0.88;
+  --lh-condensed: 0.96;
+  --lh-display: 1.05;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.7;
+
+  --tracking-tighter: -0.04em;
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.08em;
+  --tracking-wider: 0.15em;
+  --tracking-widest: 0.25em;
+}
+
+/* Display Typography Rules */
+.font-display {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: var(--lh-tight);
+}
+
+.font-condensed {
+  font-family: var(--font-condensed);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  line-height: var(--lh-condensed);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Editorial Heading Styles */
+.hero-title-tall {
+  font-family: var(--font-display);
+  font-size: var(--text-hero-giant);
+  line-height: 0.82;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--color-cobalt);
+  display: block;
+  user-select: none;
+  font-stretch: ultra-condensed;
+}
+
+.editorial-tag {
+  font-family: var(--font-body);
+  font-size: var(--text-tag);
+  font-weight: 600;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-charcoal);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.editorial-tag::after {
+  content: '';
+  display: inline-block;
+  width: 28px;
+  height: 1px;
+  background-color: var(--color-charcoal);
+  opacity: 0.4;
+}
+
+.brand-statement-vertical {
+  writing-mode: horizontal-tb;
+  font-family: var(--font-body);
+  font-size: var(--text-micro);
+  font-weight: 700;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-charcoal);
+  line-height: 1.4;
+  border-left: 1.5px solid var(--color-cobalt);
+  padding-left: 0.5rem;
+}
+
+.section-headline {
+  font-family: var(--font-display);
+  font-size: var(--text-display-1);
+  line-height: 0.88;
+  color: var(--color-cobalt);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.section-headline-yellow {
+  color: var(--color-yellow);
+}
+
+.section-subline {
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  color: var(--color-muted);
+  line-height: var(--lh-relaxed);
+  max-width: 32rem;
+}
+
+/* Custom numbers / Counter styles */
+.slide-indicator {
+  font-family: var(--font-condensed);
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-cobalt);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+}
+
+.slide-indicator-line {
+  width: 36px;
+  height: 1.5px;
+  background-color: var(--color-cobalt);
+}
